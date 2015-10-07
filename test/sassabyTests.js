@@ -30,14 +30,14 @@ describe('Sassaby', function() {
   });
 
   describe('setVariables', function() {
-    it('should return a string of the SASS variable declaration if given one variable', function() {
+    it('should return a string of the Sass variable declaration if given one variable', function() {
       var variables = {
         'color': 'blue'
       };
       assert.equal(Sassaby.setVariables(variables), '$color:blue;');
     });
 
-    it('should return a string of SASS variable declarations if given more than one variable', function() {
+    it('should return a string of Sass variable declarations if given more than one variable', function() {
       var variables = {
         'color': 'blue',
         'font-size': '16px'
@@ -47,14 +47,14 @@ describe('Sassaby', function() {
   });
 
   describe('setDependencies', function() {
-    it('should return a string of the SASS import if given one dependency', function() {
+    it('should return a string of the Sass import if given one dependency', function() {
       var dependencies = [
         'firstImport'
       ];
       assert.equal(Sassaby.setDependencies(dependencies), "@import 'firstImport';");
     });
 
-    it('should return a string of SASS imports if given more than one dependency', function() {
+    it('should return a string of Sass imports if given more than one dependency', function() {
       var dependencies = [
         'firstImport',
         'secondImport'

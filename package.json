@@ -1,7 +1,7 @@
 {
   "name": "sassaby",
   "version": "2.1.0",
-  "description": "A unit testing library for SASS",
+  "description": "A unit testing library for Sass",
   "keywords": ["sass", "scss", "testing", "unit testing", "bdd", "tdd", "test"],
   "author": "Ryan Bahniuk <ryan.bahniuk@gmail.com>",
   "license": "MIT",

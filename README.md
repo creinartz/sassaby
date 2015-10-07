@@ -1,9 +1,9 @@
 # Sassaby
-A Unit Testing Library for SASS
+A Unit Testing Library for Sass
 
 <img src="/logo.png?raw=true" alt="Sassaby Logo" width="250">
 
-Sassaby is a unit testing library for SASS mixins and functions. It is written in Node to provide a consistent interface with other front-end tests in your system and for easy integration into a build system. Its interface can be used with any Node testing library ([Mocha](https://www.npmjs.com/package/mocha "Mocha"), [Jasmine](https://www.npmjs.com/package/jasmine "Jasmine"), etc.).
+Sassaby is a unit testing library for Sass mixins and functions. It is written in Node to provide a consistent interface with other front-end tests in your system and for easy integration into a build system. Its interface can be used with any Node testing library ([Mocha](https://www.npmjs.com/package/mocha "Mocha"), [Jasmine](https://www.npmjs.com/package/jasmine "Jasmine"), etc.).
 
 ## Installation
 
@@ -33,11 +33,11 @@ describe('sample.scss', function() {
 });
 ```
 
-Note that the Sassaby constructor takes the absolute path to the SASS file. We recommend using Node's `path` and `__dirname` (which gives you the directory of the test file) plus the remaining path here. Also, note that this file must **ONLY** include SASS function and mixin declarations. Any code that compiles to CSS in this file will cause Sassaby's parsers to give inconsistent results.
+Note that the Sassaby constructor takes the absolute path to the Sass file. We recommend using Node's `path` and `__dirname` (which gives you the directory of the test file) plus the remaining path here. Also, note that this file must **ONLY** include Sass function and mixin declarations. Any code that compiles to CSS in this file will cause Sassaby's parsers to give inconsistent results.
 
 ## Dependencies
 
-We recommend testing SASS files in isolation. However, depending on the setup of your SASS import tree some functions and mixins may rely on externally declared variables, mixins, or functions. In this case, you can pass an options object to the Sassaby constructor with `variables` and/or `dependencies` defined. Here is the sample file with these options:
+We recommend testing Sass files in isolation. However, depending on the setup of your Sass import tree some functions and mixins may rely on externally declared variables, mixins, or functions. In this case, you can pass an options object to the Sassaby constructor with `variables` and/or `dependencies` defined. Here is the sample file with these options:
 
 ```js
 var path = require('path');
@@ -62,8 +62,8 @@ describe('sample.scss', function() {
 });
 ```
 
-`variables` should be an object with string keys. It will declare each key-value pair as a SASS variable before compiling the given function/mixin.
-`dependencies` should be an array of file paths to be imported into the compiled SASS. We recommend using the same approach (with `path` and `__dirname`) that is used with setting the file path.
+`variables` should be an object with string keys. It will declare each key-value pair as a Sass variable before compiling the given function/mixin.
+`dependencies` should be an array of file paths to be imported into the compiled Sass. We recommend using the same approach (with `path` and `__dirname`) that is used with setting the file path.
 
 ## Features
 
@@ -73,7 +73,7 @@ Sassaby breaks down testable features into four categories:
 * Standalone Mixins
 * Included Mixins
 
-Functions are your typical SASS functions, defined like this:
+Functions are your typical Sass functions, defined like this:
 
 ```scss
 @function rems($pxsize, $rembase) {
@@ -110,7 +110,7 @@ var testStandaloneMixin = sassaby.standaloneMixin('align-right');
 var testIncludedMixin = sassaby.includedMixin('appearance');
 ```
 
-These functions will read the given file (with variables and dependencies if given) and return an object that will takes one of the "called" functions documented below. SASS compilation will occur at this step.
+These functions will read the given file (with variables and dependencies if given) and return an object that will takes one of the "called" functions documented below. Sass compilation will occur at this step.
 
 ### calledWithArgs
 Calls the mixin or function with the given arguments.
@@ -144,7 +144,7 @@ sassaby.includedMixin('appearance').calledWithBlock('.test { color: red; }', tru
 
 ## Rules
 
-Each of these types has their own set of functions, or rules, that assert certain conditions on the result of the function or mixin. The arguments of these rules are normalized to match the output from the SASS compilation, so it can be formatted however you wish as long as it is compilable SASS.
+Each of these types has their own set of functions, or rules, that assert certain conditions on the result of the function or mixin. The arguments of these rules are normalized to match the output from the Sass compilation, so it can be formatted however you wish as long as it is compilable Sass.
 
 ### Function Rules
 
@@ -174,13 +174,13 @@ sassaby.func('returns-false').calledWithArgs(false).isFalse();
 ```
 
 #### isTruthy
-Assert that the function output is a truthy value in SASS. Keep in mind that this is SASS truthy, not Javascript truthy.
+Assert that the function output is a truthy value in Sass. Keep in mind that this is Sass truthy, not Javascript truthy.
 ```js
 sassaby.func('returns-truthy').calledWithArgs('string').isTruthy();
 ```
 
 #### isFalsy
-Assert that the function output is a falsy value in SASS. Keep in mind that this is SASS truthy, not Javascript truthy.
+Assert that the function output is a falsy value in Sass. Keep in mind that this is Sass truthy, not Javascript truthy.
 ```js
 sassaby.func('returns-falsy').calledWithArgs(null).isFalsy();
 ```
@@ -316,7 +316,7 @@ sassaby.includedMixin('appearance').calledWithArgs('button').doesNotCall('prefix
 
 ### Testing Imports
 
-Often your SASS project will have a single entry point from where all other files are imported. Sassaby exposes two assertion methods on the sassaby object itself to test this. These two methods take the same path that would be included in the `@import` statement in your SASS file.
+Often your Sass project will have a single entry point from where all other files are imported. Sassaby exposes two assertion methods on the sassaby object itself to test this. These two methods take the same path that would be included in the `@import` statement in your Sass file.
 
 
 #### imports

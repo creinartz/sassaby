@@ -13,7 +13,7 @@
 ## Version 2.0.0
 
 * Performance upgrades
-* Decoupled mixin/function call from arguments. Arguments are now added with the `calledWith` function. Now it is easier to test different arguments of the same mixin/function and is clear when SASS compilation happens (easier to optimize your tests for speed).
+* Decoupled mixin/function call from arguments. Arguments are now added with the `calledWith` function. Now it is easier to test different arguments of the same mixin/function and is clear when Sass compilation happens (easier to optimize your tests for speed).
 * Each sassaby test file is now an instance of the Sassaby class. This fixes a bug that was persisting test state between files in the suite.
 
 ## Version 1.0.2
